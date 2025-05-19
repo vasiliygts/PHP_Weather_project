@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Subscription</title>
+</head>
+<body>
+<h2>Subscribe to Weather Updates</h2>
+<form id="subscribe-form">
+    <label>Email:
+        <input type="email" name="email" required>
+    </label><br><br>
+    <label>City:
+        <input type="text" name="city" required>
+    </label><br><br>
+    <label>Frequency:
+        <select name="frequency">
+            <option value="daily">Daily</option>
+            <option value="hourly">Hourly</option>
+        </select>
+    </label><br><br>
+    <button type="submit">Subscribe</button>
+</form>
+
+<p id="response" style="margin-top: 20px;"></p>
+
+<script>
+    const form = document.getElementById('subscribe-form');
+    const responseBlock = document.getElementById('response');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+
+        const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: data
+        });
+
+        const result = await res.json();
+        responseBlock.innerText = result.message || 'Error occurred';
+    });
+</script>
+</body>
+</html>

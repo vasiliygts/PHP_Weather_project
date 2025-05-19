@@ -1,0 +1,18 @@
+Дані підключення до БД AWSДані підключення до БД AWS:
+
+Endpoint:
+ls-9b161a1b5e2dd3a4787f4eab92ee575660cced5e.c3mae6w0qpk3.eu-central-1.rds.amazonaws.com
+
+Port: 
+5432
+
+database
+weatherdb
+
+User name
+dbmasteruser
+
+pass:
+^4~52yt)s[]=C,P}KQi%(r15LEj4),VD
+
+
